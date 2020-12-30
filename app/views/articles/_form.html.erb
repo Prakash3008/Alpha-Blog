@@ -1,0 +1,24 @@
+<% if @article.errors.any? %>+
+<h2>The following errors must be checked</h2>
+<ul>
+<% @article.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+
+<% end %>
+
+<%= form_for @article do |x| %>
+  <p>
+  	<%= x.label :title %><br/>
+  	<%= x.text_field :title %>
+  </p>
+  <p>
+  	<%= x.label :description %><br/>
+  	<%= x.text_area :description %>
+  </p>
+  <%= x.submit %>
+
+<% end %>
+
+<%= link_to "Back", articles_path %>
